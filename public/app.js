@@ -76,7 +76,7 @@ function visualizeMatchesPlayedPerYear(matchesPlayedPerYear) {
 
 function visualizeMatchesWonByEachTeam(matchesWonByEachTeam) {
   
-  Highcharts.chart("matches-won-by each-team", {
+  Highcharts.chart("matches-won-by-each-team", {
     chart: {
       type: 'column'
   },
@@ -189,40 +189,40 @@ function visualizeExtraRunsByEachTeam(extraRunsByEachTeam) {
 
 function visualizeEconomicalBowlers(economicalBowlers) {
   const seriesData = [];
-  for (let year in economicalBowlers) {
-    seriesData.push([year, economicalBowlers[year]]);
+  for (let item of economicalBowlers[2015]) {
+    seriesData.push([item.bowler, parseInt(item.economy)]);
   }
 
   Highcharts.chart("top-10-economical-bowlers", {
     chart: {
-      type: "column"
+      type: "column",
     },
     title: {
-      text: "4. Top Economical Bowlers in 2015 season"
+      text: "4. Top Economical Bowlers in 2015 season",
     },
     subtitle: {
       text:
-        'Source: <a href="https://www.kaggle.com/nowke9/ipldata/data">IPL</a>'
+        'Source: <a href="https://www.kaggle.com/nowke9/ipldata/data">IPL</a>',
     },
     xAxis: {
-      type: 'category',
-        labels: {
-            rotation: -45,
-            style: {
-                fontSize: '13px',
-                fontFamily: 'Verdana, sans-serif'
-            }
-        }
+      type: "category",
+      labels: {
+        rotation: -45,
+        style: {
+          fontSize: "13px",
+          fontFamily: "Verdana, sans-serif",
+        },
+      },
     },
     yAxis: {
       min: 0,
       title: {
-        text: "Economy"
-      }
+        text: "Economy",
+      },
     },
     legend: {
-      enabled: false
-  },
+      enabled: false,
+    },
     series: [
       {
         name: "Economy",
@@ -230,17 +230,17 @@ function visualizeEconomicalBowlers(economicalBowlers) {
         dataLabels: {
           enabled: true,
           rotation: 0,
-          color: '#FFFFFF',
-          align: 'center',
+          color: "#FFFFFF",
+          align: "center",
           //format: '{point.y:.1f}', // one decimal
           y: 25, // 10 pixels down from the top
           style: {
-              fontSize: '13px',
-              fontFamily: 'Verdana, sans-serif'
-          }
-      }
-      }
-    ]
+            fontSize: "13px",
+            fontFamily: "Verdana, sans-serif",
+          },
+        },
+      },
+    ],
   });
 }
 function visualizeMatchesWonByEachTeamPerVenue(a){
